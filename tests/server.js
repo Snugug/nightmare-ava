@@ -8,7 +8,7 @@ import server from '../index';
  */
 
 const agent = request.agent(server);
-const nightmare = new Nightmare();
+const nightmare = Nightmare(); // eslint-disable-line new-cap
 
 /*
  * Basic test using feature/scenario for ensuring a route exists.
@@ -54,7 +54,7 @@ feature('Content is available:', scenario => {
         return document.querySelector('h1').innerText;
       })
       .then(result => {
-        t.is(result, 'Welcome to Teams@IBM!');
+        t.is(result, 'Nightmare with AVA');
         t.end();
       })
       .catch(err => {

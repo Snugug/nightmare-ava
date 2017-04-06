@@ -6,7 +6,7 @@ const config = require('config');
 const application = express();
 
 application.get('/', (req, res) => {
-  res.send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><title>Teams@IBM</title></head><body><h1>Welcome to Teams@IBM!</h1></body></html>');
+  res.send('<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><title>Nightmare with AVA</title></head><body><h1>Nightmare with AVA</h1></body></html>');
 });
 
 /*
