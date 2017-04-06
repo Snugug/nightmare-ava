@@ -55,7 +55,6 @@ feature('Content is available:', scenario => {
       })
       .then(result => {
         t.is(result, 'Nightmare with AVA');
-        t.end();
       });
   });
 });
