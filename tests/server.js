@@ -8,7 +8,7 @@ import server from '../index';
  */
 
 const agent = request.agent(server);
-const nightmare = Nightmare(); // eslint-disable-line new-cap
+const nightmare = new Nightmare();
 
 /*
  * Basic test using feature/scenario for ensuring a route exists.
@@ -46,8 +46,8 @@ feature('Content is available:', scenario => {
   });
 
   // Load the page, evaluate some stuff, and get the results.
-  scenario.cb('landing page that includes an intro H1', t => {
-    nightmare
+  scenario('landing page that includes an intro H1', t => {
+    return nightmare
       .goto(`http://localhost:${t.context.port}`)
       .evaluate(() => {
         /* eslint-env browser */
@@ -55,11 +55,6 @@ feature('Content is available:', scenario => {
       })
       .then(result => {
         t.is(result, 'Nightmare with AVA');
-        t.end();
-      })
-      .catch(err => {
-        // Want to console log errors
-        console.log(err); // eslint-disable-line no-console
         t.end();
       });
   });
